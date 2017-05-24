@@ -1,17 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using WithAreas.Areas.Ninjas.ViewModels;
-using WithAreas.Core.Interfaces;
-using WithAreas.Core.Model;
+using WithFeatureFolders.Core.Interfaces;
+using WithFeatureFolders.Core.Model;
+using WithFeatureFolders.Features.Samurai.Samurai;
 
-namespace WithAreas.Areas.Ninjas.Controllers
+namespace WithFeatureFolders.Features.Samurai
 {
-    [Area("Ninjas")]
-    public class HomeController : Controller
+    public class SamuraiController : Controller
     {
         private readonly IRepository<Ninja> _ninjaRepository;
 
-        public HomeController(IRepository<Ninja> ninjaRepository)
+        public SamuraiController(IRepository<Ninja> ninjaRepository)
         {
             _ninjaRepository = ninjaRepository;
         }
@@ -40,7 +39,7 @@ namespace WithAreas.Areas.Ninjas.Controllers
         {
             var entity = new Ninja()
             {
-                Name = "Random Ninja"
+                Name = "Random Samurai"
             };
             _ninjaRepository.Add(entity);
 

@@ -3,13 +3,14 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
-namespace WithFeatureFolders
+namespace Ardalis.CoreFeatureFolders
 {
     public class FeatureConvention : IControllerModelConvention
     {
         public void Apply(ControllerModel controller)
         {
-            controller.Properties.Add("feature", GetFeatureName(controller.ControllerType));
+            var featureName = GetFeatureName(controller.ControllerType);
+            controller.Properties.Add("feature", featureName);
         }
 
         private string GetFeatureName(TypeInfo controllerType)
